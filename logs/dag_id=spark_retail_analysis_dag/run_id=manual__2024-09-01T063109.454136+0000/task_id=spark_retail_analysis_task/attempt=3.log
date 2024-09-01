@@ -1,0 +1,146 @@
+[2024-09-01T06:56:20.342+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: spark_retail_analysis_dag.spark_retail_analysis_task manual__2024-09-01T06:31:09.454136+00:00 [queued]>
+[2024-09-01T06:56:20.444+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: spark_retail_analysis_dag.spark_retail_analysis_task manual__2024-09-01T06:31:09.454136+00:00 [queued]>
+[2024-09-01T06:56:20.446+0000] {taskinstance.py:2193} INFO - Starting attempt 3 of 3
+[2024-09-01T06:56:20.561+0000] {taskinstance.py:2214} INFO - Executing <Task(SparkSubmitOperator): spark_retail_analysis_task> on 2024-09-01 06:31:09.454136+00:00
+[2024-09-01T06:56:20.610+0000] {standard_task_runner.py:60} INFO - Started process 537 to run task
+[2024-09-01T06:56:20.627+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'spark_retail_analysis_dag', 'spark_retail_analysis_task', 'manual__2024-09-01T06:31:09.454136+00:00', '--job-id', '73', '--raw', '--subdir', 'DAGS_FOLDER/spark_retail_analysis_dag.py', '--cfg-path', '/tmp/tmp1yiq880w']
+[2024-09-01T06:56:20.765+0000] {standard_task_runner.py:88} INFO - Job 73: Subtask spark_retail_analysis_task
+[2024-09-01T06:56:22.143+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-09-01T06:56:22.646+0000] {task_command.py:423} INFO - Running <TaskInstance: spark_retail_analysis_dag.spark_retail_analysis_task manual__2024-09-01T06:31:09.454136+00:00 [running]> on host dataeng-airflow-scheduler
+[2024-09-01T06:56:23.767+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='dibimbing' AIRFLOW_CTX_DAG_ID='spark_retail_analysis_dag' AIRFLOW_CTX_TASK_ID='spark_retail_analysis_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T06:31:09.454136+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-01T06:31:09.454136+00:00'
+[2024-09-01T06:56:23.933+0000] {base.py:83} INFO - Using connection ID 'spark_main' for task execution.
+[2024-09-01T06:56:23.962+0000] {spark_submit.py:403} INFO - Spark-Submit cmd: spark-submit --master spark://dataeng-spark-master:7077 --packages org.postgresql:postgresql:42.2.18 --name arrow-spark /spark-scripts/spark-retail-analysis.py
+[2024-09-01T06:57:06.503+0000] {spark_submit.py:579} INFO - :: loading settings :: url = jar:file:/home/airflow/.local/lib/python3.9/site-packages/pyspark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2024-09-01T06:57:07.546+0000] {spark_submit.py:579} INFO - Ivy Default Cache set to: /home/airflow/.ivy2/cache
+[2024-09-01T06:57:07.548+0000] {spark_submit.py:579} INFO - The jars for the packages stored in: /home/airflow/.ivy2/jars
+[2024-09-01T06:57:07.628+0000] {spark_submit.py:579} INFO - org.postgresql#postgresql added as a dependency
+[2024-09-01T06:57:07.719+0000] {spark_submit.py:579} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-421d75d5-dc26-4cca-9323-2a665283b7bd;1.0
+[2024-09-01T06:57:07.721+0000] {spark_submit.py:579} INFO - confs: [default]
+[2024-09-01T06:57:10.046+0000] {spark_submit.py:579} INFO - found org.postgresql#postgresql;42.2.18 in central
+[2024-09-01T06:57:10.714+0000] {spark_submit.py:579} INFO - found org.checkerframework#checker-qual;3.5.0 in central
+[2024-09-01T06:57:11.137+0000] {spark_submit.py:579} INFO - :: resolution report :: resolve 3324ms :: artifacts dl 115ms
+[2024-09-01T06:57:11.166+0000] {spark_submit.py:579} INFO - :: modules in use:
+[2024-09-01T06:57:11.187+0000] {spark_submit.py:579} INFO - org.checkerframework#checker-qual;3.5.0 from central in [default]
+[2024-09-01T06:57:11.215+0000] {spark_submit.py:579} INFO - org.postgresql#postgresql;42.2.18 from central in [default]
+[2024-09-01T06:57:11.337+0000] {spark_submit.py:579} INFO - ---------------------------------------------------------------------
+[2024-09-01T06:57:11.451+0000] {spark_submit.py:579} INFO - |                  |            modules            ||   artifacts   |
+[2024-09-01T06:57:11.466+0000] {spark_submit.py:579} INFO - |       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2024-09-01T06:57:11.499+0000] {spark_submit.py:579} INFO - ---------------------------------------------------------------------
+[2024-09-01T06:57:11.505+0000] {spark_submit.py:579} INFO - |      default     |   2   |   0   |   0   |   0   ||   2   |   0   |
+[2024-09-01T06:57:11.532+0000] {spark_submit.py:579} INFO - ---------------------------------------------------------------------
+[2024-09-01T06:57:11.563+0000] {spark_submit.py:579} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-421d75d5-dc26-4cca-9323-2a665283b7bd
+[2024-09-01T06:57:11.659+0000] {spark_submit.py:579} INFO - confs: [default]
+[2024-09-01T06:57:12.015+0000] {spark_submit.py:579} INFO - 0 artifacts copied, 2 already retrieved (0kB/523ms)
+[2024-09-01T06:57:19.610+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:19 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2024-09-01T06:57:37.684+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:37 INFO SparkContext: Running Spark version 3.3.2
+[2024-09-01T06:57:38.184+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:38 INFO ResourceUtils: ==============================================================
+[2024-09-01T06:57:38.215+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:38 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2024-09-01T06:57:38.705+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:38 INFO ResourceUtils: ==============================================================
+[2024-09-01T06:57:38.841+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:38 INFO SparkContext: Submitted application: Dibimbing
+[2024-09-01T06:57:39.472+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:39 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2024-09-01T06:57:39.525+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:39 INFO ResourceProfile: Limiting resource is cpu
+[2024-09-01T06:57:39.538+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:39 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2024-09-01T06:57:41.017+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:41 INFO SecurityManager: Changing view acls to: airflow
+[2024-09-01T06:57:41.031+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:41 INFO SecurityManager: Changing modify acls to: airflow
+[2024-09-01T06:57:41.045+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:41 INFO SecurityManager: Changing view acls groups to:
+[2024-09-01T06:57:41.060+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:41 INFO SecurityManager: Changing modify acls groups to:
+[2024-09-01T06:57:41.070+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:41 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(airflow); groups with view permissions: Set(); users  with modify permissions: Set(airflow); groups with modify permissions: Set()
+[2024-09-01T06:57:50.535+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:50 INFO Utils: Successfully started service 'sparkDriver' on port 40705.
+[2024-09-01T06:57:51.677+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:51 INFO SparkEnv: Registering MapOutputTracker
+[2024-09-01T06:57:52.521+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:52 INFO SparkEnv: Registering BlockManagerMaster
+[2024-09-01T06:57:54.414+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:54 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2024-09-01T06:57:54.430+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:54 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2024-09-01T06:57:54.687+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:54 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2024-09-01T06:57:55.171+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:55 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-62defbf6-7744-441d-929c-76c283ff73de
+[2024-09-01T06:57:56.640+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:56 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2024-09-01T06:57:57.358+0000] {spark_submit.py:579} INFO - 24/09/01 06:57:57 INFO SparkEnv: Registering OutputCommitCoordinator
+[2024-09-01T06:58:11.540+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:11 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2024-09-01T06:58:12.393+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:12 INFO SparkContext: Added JAR file:///home/airflow/.ivy2/jars/org.postgresql_postgresql-42.2.18.jar at spark://dataeng-airflow-scheduler:40705/jars/org.postgresql_postgresql-42.2.18.jar with timestamp 1725173857603
+[2024-09-01T06:58:12.771+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:12 INFO SparkContext: Added JAR file:///home/airflow/.ivy2/jars/org.checkerframework_checker-qual-3.5.0.jar at spark://dataeng-airflow-scheduler:40705/jars/org.checkerframework_checker-qual-3.5.0.jar with timestamp 1725173857603
+[2024-09-01T06:58:12.784+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:12 INFO SparkContext: Added file file:///home/airflow/.ivy2/jars/org.postgresql_postgresql-42.2.18.jar at file:///home/airflow/.ivy2/jars/org.postgresql_postgresql-42.2.18.jar with timestamp 1725173857603
+[2024-09-01T06:58:12.791+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:12 INFO Utils: Copying /home/airflow/.ivy2/jars/org.postgresql_postgresql-42.2.18.jar to /tmp/spark-6b6097a4-7b91-4b37-8952-b07d7585c319/userFiles-4afb6645-353d-43ab-a3be-1b776903c463/org.postgresql_postgresql-42.2.18.jar
+[2024-09-01T06:58:14.739+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:14 INFO SparkContext: Added file file:///home/airflow/.ivy2/jars/org.checkerframework_checker-qual-3.5.0.jar at file:///home/airflow/.ivy2/jars/org.checkerframework_checker-qual-3.5.0.jar with timestamp 1725173857603
+[2024-09-01T06:58:14.753+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:14 INFO Utils: Copying /home/airflow/.ivy2/jars/org.checkerframework_checker-qual-3.5.0.jar to /tmp/spark-6b6097a4-7b91-4b37-8952-b07d7585c319/userFiles-4afb6645-353d-43ab-a3be-1b776903c463/org.checkerframework_checker-qual-3.5.0.jar
+[2024-09-01T06:58:16.647+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:16 INFO Executor: Starting executor ID driver on host dataeng-airflow-scheduler
+[2024-09-01T06:58:16.706+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:16 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+[2024-09-01T06:58:16.836+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:16 INFO Executor: Fetching file:///home/airflow/.ivy2/jars/org.postgresql_postgresql-42.2.18.jar with timestamp 1725173857603
+[2024-09-01T06:58:17.119+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:17 INFO Utils: /home/airflow/.ivy2/jars/org.postgresql_postgresql-42.2.18.jar has been previously copied to /tmp/spark-6b6097a4-7b91-4b37-8952-b07d7585c319/userFiles-4afb6645-353d-43ab-a3be-1b776903c463/org.postgresql_postgresql-42.2.18.jar
+[2024-09-01T06:58:17.221+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:17 INFO Executor: Fetching file:///home/airflow/.ivy2/jars/org.checkerframework_checker-qual-3.5.0.jar with timestamp 1725173857603
+[2024-09-01T06:58:17.286+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:17 INFO Utils: /home/airflow/.ivy2/jars/org.checkerframework_checker-qual-3.5.0.jar has been previously copied to /tmp/spark-6b6097a4-7b91-4b37-8952-b07d7585c319/userFiles-4afb6645-353d-43ab-a3be-1b776903c463/org.checkerframework_checker-qual-3.5.0.jar
+[2024-09-01T06:58:17.477+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:17 INFO Executor: Fetching spark://dataeng-airflow-scheduler:40705/jars/org.postgresql_postgresql-42.2.18.jar with timestamp 1725173857603
+[2024-09-01T06:58:18.009+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:18 INFO TransportClientFactory: Successfully created connection to dataeng-airflow-scheduler/172.18.0.4:40705 after 347 ms (0 ms spent in bootstraps)
+[2024-09-01T06:58:18.120+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:18 INFO Utils: Fetching spark://dataeng-airflow-scheduler:40705/jars/org.postgresql_postgresql-42.2.18.jar to /tmp/spark-6b6097a4-7b91-4b37-8952-b07d7585c319/userFiles-4afb6645-353d-43ab-a3be-1b776903c463/fetchFileTemp8683517411666896080.tmp
+[2024-09-01T06:58:19.467+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:19 INFO Utils: /tmp/spark-6b6097a4-7b91-4b37-8952-b07d7585c319/userFiles-4afb6645-353d-43ab-a3be-1b776903c463/fetchFileTemp8683517411666896080.tmp has been previously copied to /tmp/spark-6b6097a4-7b91-4b37-8952-b07d7585c319/userFiles-4afb6645-353d-43ab-a3be-1b776903c463/org.postgresql_postgresql-42.2.18.jar
+[2024-09-01T06:58:19.649+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:19 INFO Executor: Adding file:/tmp/spark-6b6097a4-7b91-4b37-8952-b07d7585c319/userFiles-4afb6645-353d-43ab-a3be-1b776903c463/org.postgresql_postgresql-42.2.18.jar to class loader
+[2024-09-01T06:58:19.681+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:19 INFO Executor: Fetching spark://dataeng-airflow-scheduler:40705/jars/org.checkerframework_checker-qual-3.5.0.jar with timestamp 1725173857603
+[2024-09-01T06:58:19.720+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:19 INFO Utils: Fetching spark://dataeng-airflow-scheduler:40705/jars/org.checkerframework_checker-qual-3.5.0.jar to /tmp/spark-6b6097a4-7b91-4b37-8952-b07d7585c319/userFiles-4afb6645-353d-43ab-a3be-1b776903c463/fetchFileTemp12817478479865114816.tmp
+[2024-09-01T06:58:19.741+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:19 INFO Utils: /tmp/spark-6b6097a4-7b91-4b37-8952-b07d7585c319/userFiles-4afb6645-353d-43ab-a3be-1b776903c463/fetchFileTemp12817478479865114816.tmp has been previously copied to /tmp/spark-6b6097a4-7b91-4b37-8952-b07d7585c319/userFiles-4afb6645-353d-43ab-a3be-1b776903c463/org.checkerframework_checker-qual-3.5.0.jar
+[2024-09-01T06:58:20.032+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:20 INFO Executor: Adding file:/tmp/spark-6b6097a4-7b91-4b37-8952-b07d7585c319/userFiles-4afb6645-353d-43ab-a3be-1b776903c463/org.checkerframework_checker-qual-3.5.0.jar to class loader
+[2024-09-01T06:58:20.330+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:20 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 41217.
+[2024-09-01T06:58:20.356+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:20 INFO NettyBlockTransferService: Server created on dataeng-airflow-scheduler:41217
+[2024-09-01T06:58:20.384+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:20 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2024-09-01T06:58:20.554+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:20 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, dataeng-airflow-scheduler, 41217, None)
+[2024-09-01T06:58:20.601+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:20 INFO BlockManagerMasterEndpoint: Registering block manager dataeng-airflow-scheduler:41217 with 434.4 MiB RAM, BlockManagerId(driver, dataeng-airflow-scheduler, 41217, None)
+[2024-09-01T06:58:20.734+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:20 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, dataeng-airflow-scheduler, 41217, None)
+[2024-09-01T06:58:20.786+0000] {spark_submit.py:579} INFO - 24/09/01 06:58:20 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, dataeng-airflow-scheduler, 41217, None)
+[2024-09-01T06:58:35.818+0000] {spark_submit.py:579} INFO - SparkSession created successfully.
+[2024-09-01T06:58:35.835+0000] {spark_submit.py:579} INFO - jdbc:postgresql://dataeng-postgres/warehouse
+[2024-09-01T06:58:35.883+0000] {spark_submit.py:579} INFO - {'user': 'user', '***': '***', 'driver': 'org.postgresql.Driver', 'stringtype': 'unspecified'}
+[2024-09-01T07:02:20.300+0000] {spark_submit.py:579} INFO - +---------------+------------------+
+[2024-09-01T07:02:20.433+0000] {spark_submit.py:579} INFO - |        Country|        TotalSales|
+[2024-09-01T07:02:20.445+0000] {spark_submit.py:579} INFO - +---------------+------------------+
+[2024-09-01T07:02:20.477+0000] {spark_submit.py:579} INFO - | United Kingdom| 8187806.364001113|
+[2024-09-01T07:02:20.493+0000] {spark_submit.py:579} INFO - |    Netherlands|284661.54000000015|
+[2024-09-01T07:02:20.510+0000] {spark_submit.py:579} INFO - |           EIRE|263276.81999999826|
+[2024-09-01T07:02:20.529+0000] {spark_submit.py:579} INFO - |        Germany|221698.20999999862|
+[2024-09-01T07:02:20.574+0000] {spark_submit.py:579} INFO - |         France|197403.90000000002|
+[2024-09-01T07:02:20.590+0000] {spark_submit.py:579} INFO - |      Australia| 137077.2699999997|
+[2024-09-01T07:02:20.606+0000] {spark_submit.py:579} INFO - |    Switzerland| 56385.35000000009|
+[2024-09-01T07:02:20.622+0000] {spark_submit.py:579} INFO - |          Spain| 54774.57999999997|
+[2024-09-01T07:02:20.639+0000] {spark_submit.py:579} INFO - |        Belgium| 40910.95999999998|
+[2024-09-01T07:02:20.655+0000] {spark_submit.py:579} INFO - |         Sweden|          36595.91|
+[2024-09-01T07:02:20.671+0000] {spark_submit.py:579} INFO - |          Japan|          35340.62|
+[2024-09-01T07:02:20.687+0000] {spark_submit.py:579} INFO - |         Norway| 35163.46000000004|
+[2024-09-01T07:02:20.712+0000] {spark_submit.py:579} INFO - |       Portugal|29367.019999999993|
+[2024-09-01T07:02:20.720+0000] {spark_submit.py:579} INFO - |        Finland| 22326.73999999997|
+[2024-09-01T07:02:20.735+0000] {spark_submit.py:579} INFO - |Channel Islands|20086.289999999957|
+[2024-09-01T07:02:20.751+0000] {spark_submit.py:579} INFO - |        Denmark|18768.140000000003|
+[2024-09-01T07:02:20.754+0000] {spark_submit.py:579} INFO - |          Italy|16890.510000000002|
+[2024-09-01T07:02:20.767+0000] {spark_submit.py:579} INFO - |         Cyprus|12946.289999999999|
+[2024-09-01T07:02:20.769+0000] {spark_submit.py:579} INFO - |        Austria|10154.319999999996|
+[2024-09-01T07:02:20.784+0000] {spark_submit.py:579} INFO - |      Hong Kong|10117.040000000003|
+[2024-09-01T07:02:20.787+0000] {spark_submit.py:579} INFO - +---------------+------------------+
+[2024-09-01T07:02:20.800+0000] {spark_submit.py:579} INFO - only showing top 20 rows
+[2024-09-01T07:02:20.817+0000] {spark_submit.py:579} INFO - 
+[2024-09-01T07:04:29.383+0000] {spark_submit.py:579} INFO - +----------+------------------+-----------+----------------+---------+
+[2024-09-01T07:04:29.384+0000] {spark_submit.py:579} INFO - |CustomerID|        TotalSpent|TotalOrders|LastPurchaseDate|ChurnRisk|
+[2024-09-01T07:04:29.406+0000] {spark_submit.py:579} INFO - +----------+------------------+-----------+----------------+---------+
+[2024-09-01T07:04:29.438+0000] {spark_submit.py:579} INFO - |     15555|            4758.2|         20|      2011-11-27|     High|
+[2024-09-01T07:04:29.441+0000] {spark_submit.py:579} INFO - |     15574|            702.25|          4|      2011-06-15|     High|
+[2024-09-01T07:04:29.454+0000] {spark_submit.py:579} INFO - |     15634|            243.55|          1|      2011-11-22|     High|
+[2024-09-01T07:04:29.465+0000] {spark_submit.py:579} INFO - |     13610|1115.4300000000003|          9|      2011-11-27|     High|
+[2024-09-01T07:04:29.475+0000] {spark_submit.py:579} INFO - |     13192|            911.94|          2|      2011-09-05|     High|
+[2024-09-01T07:04:29.483+0000] {spark_submit.py:579} INFO - |     14157| 400.4300000000001|          3|      2011-11-20|     High|
+[2024-09-01T07:04:29.487+0000] {spark_submit.py:579} INFO - |     17686| 5739.460000000001|          7|      2011-12-02|     High|
+[2024-09-01T07:04:29.488+0000] {spark_submit.py:579} INFO - |     13865|            501.56|          4|      2011-10-12|     High|
+[2024-09-01T07:04:29.505+0000] {spark_submit.py:579} INFO - |     16250|            389.44|          2|      2011-03-23|     High|
+[2024-09-01T07:04:29.509+0000] {spark_submit.py:579} INFO - |     14204|161.02999999999997|          1|      2011-12-07|     High|
+[2024-09-01T07:04:29.521+0000] {spark_submit.py:579} INFO - |     18130|1045.7399999999998|          4|      2011-12-01|     High|
+[2024-09-01T07:04:29.523+0000] {spark_submit.py:579} INFO - |     17427|             100.8|          1|      2011-09-29|     High|
+[2024-09-01T07:04:29.523+0000] {spark_submit.py:579} INFO - |     15271|           2485.82|         16|      2011-12-02|     High|
+[2024-09-01T07:04:29.525+0000] {spark_submit.py:579} INFO - |     17714|             153.0|          1|      2011-01-23|     High|
+[2024-09-01T07:04:29.561+0000] {spark_submit.py:579} INFO - |     13282|           1047.84|          6|      2011-11-21|     High|
+[2024-09-01T07:04:29.578+0000] {spark_submit.py:579} INFO - |     16320|1038.4600000000003|          2|      2011-06-20|     High|
+[2024-09-01T07:04:29.594+0000] {spark_submit.py:579} INFO - |     17506|294.28999999999996|          2|      2011-09-30|     High|
+[2024-09-01T07:04:29.626+0000] {spark_submit.py:579} INFO - |     12394|           1272.48|          2|      2011-10-07|     High|
+[2024-09-01T07:04:29.642+0000] {spark_submit.py:579} INFO - |     15269|             408.8|          1|      2011-11-16|     High|
+[2024-09-01T07:04:29.658+0000] {spark_submit.py:579} INFO - |     16504|484.37999999999977|          1|      2011-11-14|     High|
+[2024-09-01T07:04:29.674+0000] {spark_submit.py:579} INFO - +----------+------------------+-----------+----------------+---------+
+[2024-09-01T07:04:29.690+0000] {spark_submit.py:579} INFO - only showing top 20 rows
+[2024-09-01T07:04:29.706+0000] {spark_submit.py:579} INFO - 
+[2024-09-01T07:06:29.896+0000] {spark_submit.py:579} INFO - Results successfully saved to PostgreSQL.
+[2024-09-01T07:07:09.223+0000] {spark_submit.py:579} INFO - Results successfully saved to CSV.
+[2024-09-01T07:07:11.195+0000] {spark_submit.py:579} INFO - Spark session stopped successfully.
+[2024-09-01T07:07:16.598+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=spark_retail_analysis_dag, task_id=spark_retail_analysis_task, execution_date=20240901T063109, start_date=20240901T065620, end_date=20240901T070716
+[2024-09-01T07:07:17.090+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-09-01T07:07:18.973+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check

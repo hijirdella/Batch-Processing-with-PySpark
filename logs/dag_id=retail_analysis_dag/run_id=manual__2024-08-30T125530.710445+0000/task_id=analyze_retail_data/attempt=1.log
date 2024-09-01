@@ -1,0 +1,38 @@
+[2024-08-30T12:55:33.653+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: retail_analysis_dag.analyze_retail_data manual__2024-08-30T12:55:30.710445+00:00 [queued]>
+[2024-08-30T12:55:33.670+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: retail_analysis_dag.analyze_retail_data manual__2024-08-30T12:55:30.710445+00:00 [queued]>
+[2024-08-30T12:55:33.672+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2024-08-30T12:55:33.710+0000] {taskinstance.py:2214} INFO - Executing <Task(SparkSubmitOperator): analyze_retail_data> on 2024-08-30 12:55:30.710445+00:00
+[2024-08-30T12:55:33.720+0000] {standard_task_runner.py:60} INFO - Started process 1269 to run task
+[2024-08-30T12:55:33.838+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'retail_analysis_dag', 'analyze_retail_data', 'manual__2024-08-30T12:55:30.710445+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/retail_data_dag.py', '--cfg-path', '/tmp/tmp204e_7qo']
+[2024-08-30T12:55:33.841+0000] {standard_task_runner.py:88} INFO - Job 5: Subtask analyze_retail_data
+[2024-08-30T12:55:33.920+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-08-30T12:55:34.011+0000] {task_command.py:423} INFO - Running <TaskInstance: retail_analysis_dag.analyze_retail_data manual__2024-08-30T12:55:30.710445+00:00 [running]> on host dataeng-airflow-scheduler
+[2024-08-30T12:55:34.850+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='retail_analysis_dag' AIRFLOW_CTX_TASK_ID='analyze_retail_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-30T12:55:30.710445+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-30T12:55:30.710445+00:00'
+[2024-08-30T12:55:34.899+0000] {base.py:83} INFO - Using connection ID 'spark_default' for task execution.
+[2024-08-30T12:55:34.903+0000] {spark_submit.py:403} INFO - Spark-Submit cmd: spark-submit --master yarn --jars /opt/bitnami/spark/jars/postgresql-42.2.18.jar --total-executor-cores 4 --executor-memory 4g --name retail_analysis --queue root.default /opt/airflow/dags/retail_analysis.py
+[2024-08-30T12:55:46.728+0000] {spark_submit.py:579} INFO - Exception in thread "main" org.apache.spark.SparkException: When running with master 'yarn' either HADOOP_CONF_DIR or YARN_CONF_DIR must be set in the environment.
+[2024-08-30T12:55:46.730+0000] {spark_submit.py:579} INFO - at org.apache.spark.deploy.SparkSubmitArguments.error(SparkSubmitArguments.scala:634)
+[2024-08-30T12:55:46.731+0000] {spark_submit.py:579} INFO - at org.apache.spark.deploy.SparkSubmitArguments.validateSubmitArguments(SparkSubmitArguments.scala:274)
+[2024-08-30T12:55:46.732+0000] {spark_submit.py:579} INFO - at org.apache.spark.deploy.SparkSubmitArguments.validateArguments(SparkSubmitArguments.scala:234)
+[2024-08-30T12:55:46.734+0000] {spark_submit.py:579} INFO - at org.apache.spark.deploy.SparkSubmitArguments.<init>(SparkSubmitArguments.scala:119)
+[2024-08-30T12:55:46.734+0000] {spark_submit.py:579} INFO - at org.apache.spark.deploy.SparkSubmit$$anon$2$$anon$3.<init>(SparkSubmit.scala:1029)
+[2024-08-30T12:55:46.736+0000] {spark_submit.py:579} INFO - at org.apache.spark.deploy.SparkSubmit$$anon$2.parseArguments(SparkSubmit.scala:1029)
+[2024-08-30T12:55:46.737+0000] {spark_submit.py:579} INFO - at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:85)
+[2024-08-30T12:55:46.738+0000] {spark_submit.py:579} INFO - at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1046)
+[2024-08-30T12:55:46.738+0000] {spark_submit.py:579} INFO - at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1055)
+[2024-08-30T12:55:46.739+0000] {spark_submit.py:579} INFO - at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+[2024-08-30T12:55:46.780+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 174, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 505, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master yarn --jars /opt/bitnami/spark/jars/postgresql-42.2.18.jar --total-executor-cores 4 --executor-memory 4g --name retail_analysis --queue root.default /opt/airflow/dags/retail_analysis.py. Error code is: 1.
+[2024-08-30T12:55:46.796+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=retail_analysis_dag, task_id=analyze_retail_data, execution_date=20240830T125530, start_date=20240830T125533, end_date=20240830T125546
+[2024-08-30T12:55:46.833+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 5 for task analyze_retail_data (Cannot execute: spark-submit --master yarn --jars /opt/bitnami/spark/jars/postgresql-42.2.18.jar --total-executor-cores 4 --executor-memory 4g --name retail_analysis --queue root.default /opt/airflow/dags/retail_analysis.py. Error code is: 1.; 1269)
+[2024-08-30T12:55:46.868+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-08-30T12:55:46.915+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check

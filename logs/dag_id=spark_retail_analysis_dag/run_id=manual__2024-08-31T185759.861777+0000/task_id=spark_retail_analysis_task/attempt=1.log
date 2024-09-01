@@ -1,0 +1,146 @@
+[2024-08-31T18:58:14.186+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: spark_retail_analysis_dag.spark_retail_analysis_task manual__2024-08-31T18:57:59.861777+00:00 [queued]>
+[2024-08-31T18:58:14.247+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: spark_retail_analysis_dag.spark_retail_analysis_task manual__2024-08-31T18:57:59.861777+00:00 [queued]>
+[2024-08-31T18:58:14.248+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-08-31T18:58:14.380+0000] {taskinstance.py:2214} INFO - Executing <Task(SparkSubmitOperator): spark_retail_analysis_task> on 2024-08-31 18:57:59.861777+00:00
+[2024-08-31T18:58:14.409+0000] {standard_task_runner.py:60} INFO - Started process 16541 to run task
+[2024-08-31T18:58:14.414+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'spark_retail_analysis_dag', 'spark_retail_analysis_task', 'manual__2024-08-31T18:57:59.861777+00:00', '--job-id', '58', '--raw', '--subdir', 'DAGS_FOLDER/spark_retail_analysis_dag.py', '--cfg-path', '/tmp/tmp59qf327r']
+[2024-08-31T18:58:14.424+0000] {standard_task_runner.py:88} INFO - Job 58: Subtask spark_retail_analysis_task
+[2024-08-31T18:58:14.548+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-08-31T18:58:14.857+0000] {task_command.py:423} INFO - Running <TaskInstance: spark_retail_analysis_dag.spark_retail_analysis_task manual__2024-08-31T18:57:59.861777+00:00 [running]> on host dataeng-airflow-scheduler
+[2024-08-31T18:58:15.802+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='dibimbing' AIRFLOW_CTX_DAG_ID='spark_retail_analysis_dag' AIRFLOW_CTX_TASK_ID='spark_retail_analysis_task' AIRFLOW_CTX_EXECUTION_DATE='2024-08-31T18:57:59.861777+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-31T18:57:59.861777+00:00'
+[2024-08-31T18:58:15.894+0000] {base.py:83} INFO - Using connection ID 'spark_main' for task execution.
+[2024-08-31T18:58:15.897+0000] {spark_submit.py:403} INFO - Spark-Submit cmd: spark-submit --master spark://dataeng-spark-master:7077 --packages org.postgresql:postgresql:42.2.18 --name arrow-spark /spark-scripts/spark-retail-analysis.py
+[2024-08-31T18:58:52.417+0000] {spark_submit.py:579} INFO - :: loading settings :: url = jar:file:/home/airflow/.local/lib/python3.9/site-packages/pyspark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2024-08-31T18:58:53.469+0000] {spark_submit.py:579} INFO - Ivy Default Cache set to: /home/airflow/.ivy2/cache
+[2024-08-31T18:58:53.519+0000] {spark_submit.py:579} INFO - The jars for the packages stored in: /home/airflow/.ivy2/jars
+[2024-08-31T18:58:53.544+0000] {spark_submit.py:579} INFO - org.postgresql#postgresql added as a dependency
+[2024-08-31T18:58:53.643+0000] {spark_submit.py:579} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-2154bb4d-7032-483a-9b32-f0b2a2a49717;1.0
+[2024-08-31T18:58:53.696+0000] {spark_submit.py:579} INFO - confs: [default]
+[2024-08-31T18:58:54.987+0000] {spark_submit.py:579} INFO - found org.postgresql#postgresql;42.2.18 in central
+[2024-08-31T18:58:55.102+0000] {spark_submit.py:579} INFO - found org.checkerframework#checker-qual;3.5.0 in central
+[2024-08-31T18:58:55.263+0000] {spark_submit.py:579} INFO - :: resolution report :: resolve 1648ms :: artifacts dl 15ms
+[2024-08-31T18:58:55.264+0000] {spark_submit.py:579} INFO - :: modules in use:
+[2024-08-31T18:58:55.265+0000] {spark_submit.py:579} INFO - org.checkerframework#checker-qual;3.5.0 from central in [default]
+[2024-08-31T18:58:55.308+0000] {spark_submit.py:579} INFO - org.postgresql#postgresql;42.2.18 from central in [default]
+[2024-08-31T18:58:55.313+0000] {spark_submit.py:579} INFO - ---------------------------------------------------------------------
+[2024-08-31T18:58:55.314+0000] {spark_submit.py:579} INFO - |                  |            modules            ||   artifacts   |
+[2024-08-31T18:58:55.315+0000] {spark_submit.py:579} INFO - |       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2024-08-31T18:58:55.315+0000] {spark_submit.py:579} INFO - ---------------------------------------------------------------------
+[2024-08-31T18:58:55.316+0000] {spark_submit.py:579} INFO - |      default     |   2   |   0   |   0   |   0   ||   2   |   0   |
+[2024-08-31T18:58:55.316+0000] {spark_submit.py:579} INFO - ---------------------------------------------------------------------
+[2024-08-31T18:58:55.317+0000] {spark_submit.py:579} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-2154bb4d-7032-483a-9b32-f0b2a2a49717
+[2024-08-31T18:58:55.319+0000] {spark_submit.py:579} INFO - confs: [default]
+[2024-08-31T18:58:55.334+0000] {spark_submit.py:579} INFO - 0 artifacts copied, 2 already retrieved (0kB/17ms)
+[2024-08-31T18:58:56.940+0000] {spark_submit.py:579} INFO - 24/08/31 18:58:56 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2024-08-31T18:59:01.093+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:01 INFO SparkContext: Running Spark version 3.3.2
+[2024-08-31T18:59:01.152+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:01 INFO ResourceUtils: ==============================================================
+[2024-08-31T18:59:01.154+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:01 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2024-08-31T18:59:01.156+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:01 INFO ResourceUtils: ==============================================================
+[2024-08-31T18:59:01.161+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:01 INFO SparkContext: Submitted application: Dibimbing
+[2024-08-31T18:59:01.233+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:01 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2024-08-31T18:59:01.252+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:01 INFO ResourceProfile: Limiting resource is cpu
+[2024-08-31T18:59:01.254+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:01 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2024-08-31T18:59:02.167+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:02 INFO SecurityManager: Changing view acls to: airflow
+[2024-08-31T18:59:02.169+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:02 INFO SecurityManager: Changing modify acls to: airflow
+[2024-08-31T18:59:02.171+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:02 INFO SecurityManager: Changing view acls groups to:
+[2024-08-31T18:59:02.176+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:02 INFO SecurityManager: Changing modify acls groups to:
+[2024-08-31T18:59:02.180+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:02 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(airflow); groups with view permissions: Set(); users  with modify permissions: Set(airflow); groups with modify permissions: Set()
+[2024-08-31T18:59:04.021+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:04 INFO Utils: Successfully started service 'sparkDriver' on port 34709.
+[2024-08-31T18:59:04.118+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:04 INFO SparkEnv: Registering MapOutputTracker
+[2024-08-31T18:59:04.237+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:04 INFO SparkEnv: Registering BlockManagerMaster
+[2024-08-31T18:59:04.308+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:04 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2024-08-31T18:59:04.311+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:04 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2024-08-31T18:59:04.354+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:04 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2024-08-31T18:59:04.397+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:04 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-6c0bff1f-054b-41b4-ad7b-aca06bd64679
+[2024-08-31T18:59:04.438+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:04 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2024-08-31T18:59:04.484+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:04 INFO SparkEnv: Registering OutputCommitCoordinator
+[2024-08-31T18:59:05.049+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:05 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2024-08-31T18:59:05.115+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:05 INFO SparkContext: Added JAR file:///home/airflow/.ivy2/jars/org.postgresql_postgresql-42.2.18.jar at spark://dataeng-airflow-scheduler:34709/jars/org.postgresql_postgresql-42.2.18.jar with timestamp 1725130741074
+[2024-08-31T18:59:05.117+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:05 INFO SparkContext: Added JAR file:///home/airflow/.ivy2/jars/org.checkerframework_checker-qual-3.5.0.jar at spark://dataeng-airflow-scheduler:34709/jars/org.checkerframework_checker-qual-3.5.0.jar with timestamp 1725130741074
+[2024-08-31T18:59:05.125+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:05 INFO SparkContext: Added file file:///home/airflow/.ivy2/jars/org.postgresql_postgresql-42.2.18.jar at file:///home/airflow/.ivy2/jars/org.postgresql_postgresql-42.2.18.jar with timestamp 1725130741074
+[2024-08-31T18:59:05.238+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:05 INFO Utils: Copying /home/airflow/.ivy2/jars/org.postgresql_postgresql-42.2.18.jar to /tmp/spark-593176d5-50bc-4e48-af97-652b12dcf32b/userFiles-cd2343ed-2e3e-4fe8-bb34-5b34bdb859ba/org.postgresql_postgresql-42.2.18.jar
+[2024-08-31T18:59:05.432+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:05 INFO SparkContext: Added file file:///home/airflow/.ivy2/jars/org.checkerframework_checker-qual-3.5.0.jar at file:///home/airflow/.ivy2/jars/org.checkerframework_checker-qual-3.5.0.jar with timestamp 1725130741074
+[2024-08-31T18:59:05.444+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:05 INFO Utils: Copying /home/airflow/.ivy2/jars/org.checkerframework_checker-qual-3.5.0.jar to /tmp/spark-593176d5-50bc-4e48-af97-652b12dcf32b/userFiles-cd2343ed-2e3e-4fe8-bb34-5b34bdb859ba/org.checkerframework_checker-qual-3.5.0.jar
+[2024-08-31T18:59:05.788+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:05 INFO Executor: Starting executor ID driver on host dataeng-airflow-scheduler
+[2024-08-31T18:59:05.819+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:05 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+[2024-08-31T18:59:05.865+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:05 INFO Executor: Fetching file:///home/airflow/.ivy2/jars/org.postgresql_postgresql-42.2.18.jar with timestamp 1725130741074
+[2024-08-31T18:59:06.010+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:05 INFO Utils: /home/airflow/.ivy2/jars/org.postgresql_postgresql-42.2.18.jar has been previously copied to /tmp/spark-593176d5-50bc-4e48-af97-652b12dcf32b/userFiles-cd2343ed-2e3e-4fe8-bb34-5b34bdb859ba/org.postgresql_postgresql-42.2.18.jar
+[2024-08-31T18:59:06.066+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:06 INFO Executor: Fetching file:///home/airflow/.ivy2/jars/org.checkerframework_checker-qual-3.5.0.jar with timestamp 1725130741074
+[2024-08-31T18:59:06.077+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:06 INFO Utils: /home/airflow/.ivy2/jars/org.checkerframework_checker-qual-3.5.0.jar has been previously copied to /tmp/spark-593176d5-50bc-4e48-af97-652b12dcf32b/userFiles-cd2343ed-2e3e-4fe8-bb34-5b34bdb859ba/org.checkerframework_checker-qual-3.5.0.jar
+[2024-08-31T18:59:06.117+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:06 INFO Executor: Fetching spark://dataeng-airflow-scheduler:34709/jars/org.checkerframework_checker-qual-3.5.0.jar with timestamp 1725130741074
+[2024-08-31T18:59:06.266+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:06 INFO TransportClientFactory: Successfully created connection to dataeng-airflow-scheduler/172.18.0.3:34709 after 108 ms (0 ms spent in bootstraps)
+[2024-08-31T18:59:06.318+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:06 INFO Utils: Fetching spark://dataeng-airflow-scheduler:34709/jars/org.checkerframework_checker-qual-3.5.0.jar to /tmp/spark-593176d5-50bc-4e48-af97-652b12dcf32b/userFiles-cd2343ed-2e3e-4fe8-bb34-5b34bdb859ba/fetchFileTemp10463462087500372915.tmp
+[2024-08-31T18:59:06.674+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:06 INFO Utils: /tmp/spark-593176d5-50bc-4e48-af97-652b12dcf32b/userFiles-cd2343ed-2e3e-4fe8-bb34-5b34bdb859ba/fetchFileTemp10463462087500372915.tmp has been previously copied to /tmp/spark-593176d5-50bc-4e48-af97-652b12dcf32b/userFiles-cd2343ed-2e3e-4fe8-bb34-5b34bdb859ba/org.checkerframework_checker-qual-3.5.0.jar
+[2024-08-31T18:59:06.801+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:06 INFO Executor: Adding file:/tmp/spark-593176d5-50bc-4e48-af97-652b12dcf32b/userFiles-cd2343ed-2e3e-4fe8-bb34-5b34bdb859ba/org.checkerframework_checker-qual-3.5.0.jar to class loader
+[2024-08-31T18:59:06.815+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:06 INFO Executor: Fetching spark://dataeng-airflow-scheduler:34709/jars/org.postgresql_postgresql-42.2.18.jar with timestamp 1725130741074
+[2024-08-31T18:59:06.822+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:06 INFO Utils: Fetching spark://dataeng-airflow-scheduler:34709/jars/org.postgresql_postgresql-42.2.18.jar to /tmp/spark-593176d5-50bc-4e48-af97-652b12dcf32b/userFiles-cd2343ed-2e3e-4fe8-bb34-5b34bdb859ba/fetchFileTemp11638658371196225985.tmp
+[2024-08-31T18:59:06.849+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:06 INFO Utils: /tmp/spark-593176d5-50bc-4e48-af97-652b12dcf32b/userFiles-cd2343ed-2e3e-4fe8-bb34-5b34bdb859ba/fetchFileTemp11638658371196225985.tmp has been previously copied to /tmp/spark-593176d5-50bc-4e48-af97-652b12dcf32b/userFiles-cd2343ed-2e3e-4fe8-bb34-5b34bdb859ba/org.postgresql_postgresql-42.2.18.jar
+[2024-08-31T18:59:06.985+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:06 INFO Executor: Adding file:/tmp/spark-593176d5-50bc-4e48-af97-652b12dcf32b/userFiles-cd2343ed-2e3e-4fe8-bb34-5b34bdb859ba/org.postgresql_postgresql-42.2.18.jar to class loader
+[2024-08-31T18:59:07.006+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:06 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 34851.
+[2024-08-31T18:59:07.019+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:07 INFO NettyBlockTransferService: Server created on dataeng-airflow-scheduler:34851
+[2024-08-31T18:59:07.035+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:07 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2024-08-31T18:59:07.051+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:07 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, dataeng-airflow-scheduler, 34851, None)
+[2024-08-31T18:59:07.067+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:07 INFO BlockManagerMasterEndpoint: Registering block manager dataeng-airflow-scheduler:34851 with 434.4 MiB RAM, BlockManagerId(driver, dataeng-airflow-scheduler, 34851, None)
+[2024-08-31T18:59:07.100+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:07 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, dataeng-airflow-scheduler, 34851, None)
+[2024-08-31T18:59:07.107+0000] {spark_submit.py:579} INFO - 24/08/31 18:59:07 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, dataeng-airflow-scheduler, 34851, None)
+[2024-08-31T18:59:09.451+0000] {spark_submit.py:579} INFO - SparkSession created successfully.
+[2024-08-31T18:59:12.481+0000] {spark_submit.py:579} INFO - Traceback (most recent call last):
+[2024-08-31T18:59:12.483+0000] {spark_submit.py:579} INFO - File "/spark-scripts/spark-retail-analysis.py", line 41, in <module>
+[2024-08-31T18:59:12.492+0000] {spark_submit.py:579} INFO - retail_df = spark.read.jdbc(
+[2024-08-31T18:59:12.493+0000] {spark_submit.py:579} INFO - File "/home/airflow/.local/lib/python3.9/site-packages/pyspark/python/lib/pyspark.zip/pyspark/sql/readwriter.py", line 716, in jdbc
+[2024-08-31T18:59:12.494+0000] {spark_submit.py:579} INFO - File "/home/airflow/.local/lib/python3.9/site-packages/pyspark/python/lib/py4j-0.10.9.5-src.zip/py4j/java_gateway.py", line 1321, in __call__
+[2024-08-31T18:59:12.498+0000] {spark_submit.py:579} INFO - File "/home/airflow/.local/lib/python3.9/site-packages/pyspark/python/lib/pyspark.zip/pyspark/sql/utils.py", line 190, in deco
+[2024-08-31T18:59:12.500+0000] {spark_submit.py:579} INFO - File "/home/airflow/.local/lib/python3.9/site-packages/pyspark/python/lib/py4j-0.10.9.5-src.zip/py4j/protocol.py", line 326, in get_return_value
+[2024-08-31T18:59:12.504+0000] {spark_submit.py:579} INFO - py4j.protocol.Py4JJavaError: An error occurred while calling o30.jdbc.
+[2024-08-31T18:59:12.510+0000] {spark_submit.py:579} INFO - : org.postgresql.util.PSQLException: FATAL: database "None" does not exist
+[2024-08-31T18:59:12.511+0000] {spark_submit.py:579} INFO - at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2553)
+[2024-08-31T18:59:12.526+0000] {spark_submit.py:579} INFO - at org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2665)
+[2024-08-31T18:59:12.528+0000] {spark_submit.py:579} INFO - at org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:147)
+[2024-08-31T18:59:12.534+0000] {spark_submit.py:579} INFO - at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:273)
+[2024-08-31T18:59:12.535+0000] {spark_submit.py:579} INFO - at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51)
+[2024-08-31T18:59:12.536+0000] {spark_submit.py:579} INFO - at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:225)
+[2024-08-31T18:59:12.537+0000] {spark_submit.py:579} INFO - at org.postgresql.Driver.makeConnection(Driver.java:465)
+[2024-08-31T18:59:12.542+0000] {spark_submit.py:579} INFO - at org.postgresql.Driver.connect(Driver.java:264)
+[2024-08-31T18:59:12.558+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.jdbc.connection.BasicConnectionProvider.getConnection(BasicConnectionProvider.scala:49)
+[2024-08-31T18:59:12.574+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.jdbc.connection.ConnectionProviderBase.create(ConnectionProvider.scala:102)
+[2024-08-31T18:59:12.575+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.jdbc.JdbcDialect.$anonfun$createConnectionFactory$1(JdbcDialects.scala:122)
+[2024-08-31T18:59:12.576+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.jdbc.JdbcDialect.$anonfun$createConnectionFactory$1$adapted(JdbcDialects.scala:118)
+[2024-08-31T18:59:12.590+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.jdbc.JDBCRDD$.getQueryOutputSchema(JDBCRDD.scala:63)
+[2024-08-31T18:59:12.591+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.jdbc.JDBCRDD$.resolveTable(JDBCRDD.scala:58)
+[2024-08-31T18:59:12.592+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.jdbc.JDBCRelation$.getSchema(JDBCRelation.scala:242)
+[2024-08-31T18:59:12.592+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:37)
+[2024-08-31T18:59:12.593+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:350)
+[2024-08-31T18:59:12.594+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:228)
+[2024-08-31T18:59:12.594+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.$anonfun$load$2(DataFrameReader.scala:210)
+[2024-08-31T18:59:12.595+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-31T18:59:12.606+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:210)
+[2024-08-31T18:59:12.607+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:171)
+[2024-08-31T18:59:12.608+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.jdbc(DataFrameReader.scala:248)
+[2024-08-31T18:59:12.608+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-08-31T18:59:12.609+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2024-08-31T18:59:12.609+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-08-31T18:59:12.610+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2024-08-31T18:59:12.611+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-08-31T18:59:12.611+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+[2024-08-31T18:59:12.612+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2024-08-31T18:59:12.617+0000] {spark_submit.py:579} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-08-31T18:59:12.618+0000] {spark_submit.py:579} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-08-31T18:59:12.618+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-31T18:59:12.627+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-31T18:59:12.628+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-31T18:59:12.636+0000] {spark_submit.py:579} INFO - 
+[2024-08-31T18:59:12.978+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 174, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 505, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master spark://dataeng-spark-master:7077 --packages org.postgresql:postgresql:42.2.18 --name arrow-spark /spark-scripts/spark-retail-analysis.py. Error code is: 1.
+[2024-08-31T18:59:12.993+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=spark_retail_analysis_dag, task_id=spark_retail_analysis_task, execution_date=20240831T185759, start_date=20240831T185814, end_date=20240831T185912
+[2024-08-31T18:59:13.028+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 58 for task spark_retail_analysis_task (Cannot execute: spark-submit --master spark://dataeng-spark-master:7077 --packages org.postgresql:postgresql:42.2.18 --name arrow-spark /spark-scripts/spark-retail-analysis.py. Error code is: 1.; 16541)
+[2024-08-31T18:59:13.059+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-08-31T18:59:13.101+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check

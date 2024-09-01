@@ -1,0 +1,389 @@
+[2024-08-31T18:15:13.065+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: spark_retail_analysis_dag.spark_retail_analysis_task manual__2024-08-31T18:15:07.059699+00:00 [queued]>
+[2024-08-31T18:15:13.109+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: spark_retail_analysis_dag.spark_retail_analysis_task manual__2024-08-31T18:15:07.059699+00:00 [queued]>
+[2024-08-31T18:15:13.110+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-08-31T18:15:13.158+0000] {taskinstance.py:2214} INFO - Executing <Task(SparkSubmitOperator): spark_retail_analysis_task> on 2024-08-31 18:15:07.059699+00:00
+[2024-08-31T18:15:13.174+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'spark_retail_analysis_dag', 'spark_retail_analysis_task', 'manual__2024-08-31T18:15:07.059699+00:00', '--job-id', '52', '--raw', '--subdir', 'DAGS_FOLDER/spark_retail_analysis_dag.py', '--cfg-path', '/tmp/tmpsfjmogb6']
+[2024-08-31T18:15:13.172+0000] {standard_task_runner.py:60} INFO - Started process 15130 to run task
+[2024-08-31T18:15:13.178+0000] {standard_task_runner.py:88} INFO - Job 52: Subtask spark_retail_analysis_task
+[2024-08-31T18:15:13.459+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-08-31T18:15:13.559+0000] {task_command.py:423} INFO - Running <TaskInstance: spark_retail_analysis_dag.spark_retail_analysis_task manual__2024-08-31T18:15:07.059699+00:00 [running]> on host dataeng-airflow-scheduler
+[2024-08-31T18:15:14.038+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='dibimbing' AIRFLOW_CTX_DAG_ID='spark_retail_analysis_dag' AIRFLOW_CTX_TASK_ID='spark_retail_analysis_task' AIRFLOW_CTX_EXECUTION_DATE='2024-08-31T18:15:07.059699+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-31T18:15:07.059699+00:00'
+[2024-08-31T18:15:14.064+0000] {base.py:83} INFO - Using connection ID 'spark_main' for task execution.
+[2024-08-31T18:15:14.067+0000] {spark_submit.py:403} INFO - Spark-Submit cmd: spark-submit --master spark://dataeng-spark-master:7077 --packages org.postgresql:postgresql:42.2.18 --name arrow-spark /spark-scripts/spark-retail-analysis.py
+[2024-08-31T18:15:27.232+0000] {spark_submit.py:579} INFO - :: loading settings :: url = jar:file:/home/airflow/.local/lib/python3.9/site-packages/pyspark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2024-08-31T18:15:27.470+0000] {spark_submit.py:579} INFO - Ivy Default Cache set to: /home/airflow/.ivy2/cache
+[2024-08-31T18:15:27.470+0000] {spark_submit.py:579} INFO - The jars for the packages stored in: /home/airflow/.ivy2/jars
+[2024-08-31T18:15:27.477+0000] {spark_submit.py:579} INFO - org.postgresql#postgresql added as a dependency
+[2024-08-31T18:15:27.479+0000] {spark_submit.py:579} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-8f8176db-66c3-4494-8dcd-4f24a25b5017;1.0
+[2024-08-31T18:15:27.480+0000] {spark_submit.py:579} INFO - confs: [default]
+[2024-08-31T18:15:29.981+0000] {spark_submit.py:579} INFO - found org.postgresql#postgresql;42.2.18 in central
+[2024-08-31T18:15:30.920+0000] {spark_submit.py:579} INFO - found org.checkerframework#checker-qual;3.5.0 in central
+[2024-08-31T18:15:31.506+0000] {spark_submit.py:579} INFO - downloading https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.18/postgresql-42.2.18.jar ...
+[2024-08-31T18:15:34.688+0000] {spark_submit.py:579} INFO - [SUCCESSFUL ] org.postgresql#postgresql;42.2.18!postgresql.jar (3375ms)
+[2024-08-31T18:15:34.880+0000] {spark_submit.py:579} INFO - downloading https://repo1.maven.org/maven2/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar ...
+[2024-08-31T18:15:36.269+0000] {spark_submit.py:579} INFO - [SUCCESSFUL ] org.checkerframework#checker-qual;3.5.0!checker-qual.jar (1578ms)
+[2024-08-31T18:15:36.285+0000] {spark_submit.py:579} INFO - :: resolution report :: resolve 3830ms :: artifacts dl 4961ms
+[2024-08-31T18:15:36.297+0000] {spark_submit.py:579} INFO - :: modules in use:
+[2024-08-31T18:15:36.308+0000] {spark_submit.py:579} INFO - org.checkerframework#checker-qual;3.5.0 from central in [default]
+[2024-08-31T18:15:36.329+0000] {spark_submit.py:579} INFO - org.postgresql#postgresql;42.2.18 from central in [default]
+[2024-08-31T18:15:36.341+0000] {spark_submit.py:579} INFO - ---------------------------------------------------------------------
+[2024-08-31T18:15:36.354+0000] {spark_submit.py:579} INFO - |                  |            modules            ||   artifacts   |
+[2024-08-31T18:15:36.371+0000] {spark_submit.py:579} INFO - |       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2024-08-31T18:15:36.374+0000] {spark_submit.py:579} INFO - ---------------------------------------------------------------------
+[2024-08-31T18:15:36.385+0000] {spark_submit.py:579} INFO - |      default     |   2   |   2   |   2   |   0   ||   2   |   2   |
+[2024-08-31T18:15:36.417+0000] {spark_submit.py:579} INFO - ---------------------------------------------------------------------
+[2024-08-31T18:15:36.462+0000] {spark_submit.py:579} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-8f8176db-66c3-4494-8dcd-4f24a25b5017
+[2024-08-31T18:15:36.476+0000] {spark_submit.py:579} INFO - confs: [default]
+[2024-08-31T18:15:36.552+0000] {spark_submit.py:579} INFO - 2 artifacts copied, 0 already retrieved (1190kB/155ms)
+[2024-08-31T18:15:39.705+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:39 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2024-08-31T18:15:47.430+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:47 INFO SparkContext: Running Spark version 3.3.2
+[2024-08-31T18:15:47.665+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:47 INFO ResourceUtils: ==============================================================
+[2024-08-31T18:15:47.669+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:47 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2024-08-31T18:15:47.681+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:47 INFO ResourceUtils: ==============================================================
+[2024-08-31T18:15:47.682+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:47 INFO SparkContext: Submitted application: Dibimbing
+[2024-08-31T18:15:47.844+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:47 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2024-08-31T18:15:48.018+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:48 INFO ResourceProfile: Limiting resource is cpu
+[2024-08-31T18:15:48.020+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:48 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2024-08-31T18:15:48.310+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:48 INFO SecurityManager: Changing view acls to: airflow
+[2024-08-31T18:15:48.323+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:48 INFO SecurityManager: Changing modify acls to: airflow
+[2024-08-31T18:15:48.339+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:48 INFO SecurityManager: Changing view acls groups to:
+[2024-08-31T18:15:48.341+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:48 INFO SecurityManager: Changing modify acls groups to:
+[2024-08-31T18:15:48.342+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:48 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(airflow); groups with view permissions: Set(); users  with modify permissions: Set(airflow); groups with modify permissions: Set()
+[2024-08-31T18:15:49.523+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:49 INFO Utils: Successfully started service 'sparkDriver' on port 38733.
+[2024-08-31T18:15:49.735+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:49 INFO SparkEnv: Registering MapOutputTracker
+[2024-08-31T18:15:49.906+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:49 INFO SparkEnv: Registering BlockManagerMaster
+[2024-08-31T18:15:49.985+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:49 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2024-08-31T18:15:49.987+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:49 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2024-08-31T18:15:50.032+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:50 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2024-08-31T18:15:50.199+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:50 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-c593393f-ce7e-46cd-be93-5b34aa99744b
+[2024-08-31T18:15:50.319+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:50 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2024-08-31T18:15:50.440+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:50 INFO SparkEnv: Registering OutputCommitCoordinator
+[2024-08-31T18:15:52.977+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:52 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2024-08-31T18:15:53.232+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:53 ERROR SparkContext: Failed to add /opt/bitnami/spark/jars/postgresql-42.2.18.jar to Spark environment
+[2024-08-31T18:15:53.245+0000] {spark_submit.py:579} INFO - java.io.FileNotFoundException: Jar /opt/bitnami/spark/jars/postgresql-42.2.18.jar not found
+[2024-08-31T18:15:53.252+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.addLocalJarFile$1(SparkContext.scala:1959)
+[2024-08-31T18:15:53.268+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.addJar(SparkContext.scala:2014)
+[2024-08-31T18:15:53.276+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.$anonfun$new$12(SparkContext.scala:507)
+[2024-08-31T18:15:53.295+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.$anonfun$new$12$adapted(SparkContext.scala:507)
+[2024-08-31T18:15:53.303+0000] {spark_submit.py:579} INFO - at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+[2024-08-31T18:15:53.311+0000] {spark_submit.py:579} INFO - at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+[2024-08-31T18:15:53.319+0000] {spark_submit.py:579} INFO - at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+[2024-08-31T18:15:53.327+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.<init>(SparkContext.scala:507)
+[2024-08-31T18:15:53.333+0000] {spark_submit.py:579} INFO - at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+[2024-08-31T18:15:53.343+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2024-08-31T18:15:53.354+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2024-08-31T18:15:53.358+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2024-08-31T18:15:53.375+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2024-08-31T18:15:53.383+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2024-08-31T18:15:53.415+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+[2024-08-31T18:15:53.422+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+[2024-08-31T18:15:53.439+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:238)
+[2024-08-31T18:15:53.523+0000] {spark_submit.py:579} INFO - at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+[2024-08-31T18:15:53.558+0000] {spark_submit.py:579} INFO - at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+[2024-08-31T18:15:53.574+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-31T18:15:53.590+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-31T18:15:53.606+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-31T18:15:53.642+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:53 INFO SparkContext: Added file file:///home/airflow/.ivy2/jars/org.postgresql_postgresql-42.2.18.jar at spark://dataeng-airflow-scheduler:38733/files/org.postgresql_postgresql-42.2.18.jar with timestamp 1725128147372
+[2024-08-31T18:15:53.676+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:53 INFO Utils: Copying /home/airflow/.ivy2/jars/org.postgresql_postgresql-42.2.18.jar to /tmp/spark-fdd1ff7f-1ab8-4b42-a820-c5dbea1c9b31/userFiles-7fb5795c-abab-427e-a178-8bee232e07eb/org.postgresql_postgresql-42.2.18.jar
+[2024-08-31T18:15:54.300+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:54 INFO SparkContext: Added file file:///home/airflow/.ivy2/jars/org.checkerframework_checker-qual-3.5.0.jar at spark://dataeng-airflow-scheduler:38733/files/org.checkerframework_checker-qual-3.5.0.jar with timestamp 1725128147372
+[2024-08-31T18:15:54.306+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:54 INFO Utils: Copying /home/airflow/.ivy2/jars/org.checkerframework_checker-qual-3.5.0.jar to /tmp/spark-fdd1ff7f-1ab8-4b42-a820-c5dbea1c9b31/userFiles-7fb5795c-abab-427e-a178-8bee232e07eb/org.checkerframework_checker-qual-3.5.0.jar
+[2024-08-31T18:15:55.909+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:55 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://dibimbing-dataeng-spark-master:7077...
+[2024-08-31T18:15:57.279+0000] {spark_submit.py:579} INFO - 24/08/31 18:15:57 WARN StandaloneAppClient$ClientEndpoint: Failed to connect to master dibimbing-dataeng-spark-master:7077
+[2024-08-31T18:15:57.295+0000] {spark_submit.py:579} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2024-08-31T18:15:57.299+0000] {spark_submit.py:579} INFO - at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:301)
+[2024-08-31T18:15:57.311+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2024-08-31T18:15:57.312+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.RpcEnv.setupEndpointRefByURI(RpcEnv.scala:102)
+[2024-08-31T18:15:57.313+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.RpcEnv.setupEndpointRef(RpcEnv.scala:110)
+[2024-08-31T18:15:57.314+0000] {spark_submit.py:579} INFO - at org.apache.spark.deploy.client.StandaloneAppClient$ClientEndpoint$$anon$1.run(StandaloneAppClient.scala:107)
+[2024-08-31T18:15:57.314+0000] {spark_submit.py:579} INFO - at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[2024-08-31T18:15:57.315+0000] {spark_submit.py:579} INFO - at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+[2024-08-31T18:15:57.316+0000] {spark_submit.py:579} INFO - at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2024-08-31T18:15:57.316+0000] {spark_submit.py:579} INFO - at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2024-08-31T18:15:57.317+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-31T18:15:57.328+0000] {spark_submit.py:579} INFO - Caused by: java.io.IOException: Failed to connect to dibimbing-dataeng-spark-master/<unresolved>:7077
+[2024-08-31T18:15:57.331+0000] {spark_submit.py:579} INFO - at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:288)
+[2024-08-31T18:15:57.332+0000] {spark_submit.py:579} INFO - at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:218)
+[2024-08-31T18:15:57.333+0000] {spark_submit.py:579} INFO - at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:230)
+[2024-08-31T18:15:57.333+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.netty.NettyRpcEnv.createClient(NettyRpcEnv.scala:204)
+[2024-08-31T18:15:57.334+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.netty.Outbox$$anon$1.call(Outbox.scala:202)
+[2024-08-31T18:15:57.335+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.netty.Outbox$$anon$1.call(Outbox.scala:198)
+[2024-08-31T18:15:57.335+0000] {spark_submit.py:579} INFO - ... 4 more
+[2024-08-31T18:15:57.343+0000] {spark_submit.py:579} INFO - Caused by: java.net.UnknownHostException: dibimbing-dataeng-spark-master
+[2024-08-31T18:15:57.345+0000] {spark_submit.py:579} INFO - at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
+[2024-08-31T18:15:57.346+0000] {spark_submit.py:579} INFO - at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)
+[2024-08-31T18:15:57.346+0000] {spark_submit.py:579} INFO - at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385)
+[2024-08-31T18:15:57.347+0000] {spark_submit.py:579} INFO - at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306)
+[2024-08-31T18:15:57.348+0000] {spark_submit.py:579} INFO - at java.base/java.net.InetAddress.getByName(InetAddress.java:1256)
+[2024-08-31T18:15:57.348+0000] {spark_submit.py:579} INFO - at io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:156)
+[2024-08-31T18:15:57.349+0000] {spark_submit.py:579} INFO - at io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:153)
+[2024-08-31T18:15:57.349+0000] {spark_submit.py:579} INFO - at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+[2024-08-31T18:15:57.359+0000] {spark_submit.py:579} INFO - at io.netty.util.internal.SocketUtils.addressByName(SocketUtils.java:153)
+[2024-08-31T18:15:57.369+0000] {spark_submit.py:579} INFO - at io.netty.resolver.DefaultNameResolver.doResolve(DefaultNameResolver.java:41)
+[2024-08-31T18:15:57.371+0000] {spark_submit.py:579} INFO - at io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:61)
+[2024-08-31T18:15:57.373+0000] {spark_submit.py:579} INFO - at io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:53)
+[2024-08-31T18:15:57.377+0000] {spark_submit.py:579} INFO - at io.netty.resolver.InetSocketAddressResolver.doResolve(InetSocketAddressResolver.java:55)
+[2024-08-31T18:15:57.378+0000] {spark_submit.py:579} INFO - at io.netty.resolver.InetSocketAddressResolver.doResolve(InetSocketAddressResolver.java:31)
+[2024-08-31T18:15:57.379+0000] {spark_submit.py:579} INFO - at io.netty.resolver.AbstractAddressResolver.resolve(AbstractAddressResolver.java:106)
+[2024-08-31T18:15:57.383+0000] {spark_submit.py:579} INFO - at io.netty.bootstrap.Bootstrap.doResolveAndConnect0(Bootstrap.java:206)
+[2024-08-31T18:15:57.388+0000] {spark_submit.py:579} INFO - at io.netty.bootstrap.Bootstrap.access$000(Bootstrap.java:46)
+[2024-08-31T18:15:57.396+0000] {spark_submit.py:579} INFO - at io.netty.bootstrap.Bootstrap$1.operationComplete(Bootstrap.java:180)
+[2024-08-31T18:15:57.422+0000] {spark_submit.py:579} INFO - at io.netty.bootstrap.Bootstrap$1.operationComplete(Bootstrap.java:166)
+[2024-08-31T18:15:57.427+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:578)
+[2024-08-31T18:15:57.429+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:552)
+[2024-08-31T18:15:57.434+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:491)
+[2024-08-31T18:15:57.436+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:616)
+[2024-08-31T18:15:57.438+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.setSuccess0(DefaultPromise.java:605)
+[2024-08-31T18:15:57.443+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.trySuccess(DefaultPromise.java:104)
+[2024-08-31T18:15:57.444+0000] {spark_submit.py:579} INFO - at io.netty.channel.DefaultChannelPromise.trySuccess(DefaultChannelPromise.java:84)
+[2024-08-31T18:15:57.445+0000] {spark_submit.py:579} INFO - at io.netty.channel.AbstractChannel$AbstractUnsafe.safeSetSuccess(AbstractChannel.java:990)
+[2024-08-31T18:15:57.449+0000] {spark_submit.py:579} INFO - at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:516)
+[2024-08-31T18:15:57.450+0000] {spark_submit.py:579} INFO - at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:429)
+[2024-08-31T18:15:57.451+0000] {spark_submit.py:579} INFO - at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:486)
+[2024-08-31T18:15:57.452+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
+[2024-08-31T18:15:57.452+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
+[2024-08-31T18:15:57.453+0000] {spark_submit.py:579} INFO - at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:503)
+[2024-08-31T18:15:57.454+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
+[2024-08-31T18:15:57.454+0000] {spark_submit.py:579} INFO - at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+[2024-08-31T18:15:57.455+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+[2024-08-31T18:15:57.456+0000] {spark_submit.py:579} INFO - ... 1 more
+[2024-08-31T18:16:15.900+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:15 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://dibimbing-dataeng-spark-master:7077...
+[2024-08-31T18:16:16.947+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:16 WARN StandaloneAppClient$ClientEndpoint: Failed to connect to master dibimbing-dataeng-spark-master:7077
+[2024-08-31T18:16:16.948+0000] {spark_submit.py:579} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2024-08-31T18:16:16.949+0000] {spark_submit.py:579} INFO - at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:301)
+[2024-08-31T18:16:16.950+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2024-08-31T18:16:16.950+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.RpcEnv.setupEndpointRefByURI(RpcEnv.scala:102)
+[2024-08-31T18:16:16.952+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.RpcEnv.setupEndpointRef(RpcEnv.scala:110)
+[2024-08-31T18:16:16.953+0000] {spark_submit.py:579} INFO - at org.apache.spark.deploy.client.StandaloneAppClient$ClientEndpoint$$anon$1.run(StandaloneAppClient.scala:107)
+[2024-08-31T18:16:16.956+0000] {spark_submit.py:579} INFO - at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[2024-08-31T18:16:16.957+0000] {spark_submit.py:579} INFO - at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+[2024-08-31T18:16:16.957+0000] {spark_submit.py:579} INFO - at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2024-08-31T18:16:16.960+0000] {spark_submit.py:579} INFO - at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2024-08-31T18:16:16.961+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-31T18:16:16.962+0000] {spark_submit.py:579} INFO - Caused by: java.io.IOException: Failed to connect to dibimbing-dataeng-spark-master/<unresolved>:7077
+[2024-08-31T18:16:16.963+0000] {spark_submit.py:579} INFO - at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:288)
+[2024-08-31T18:16:16.964+0000] {spark_submit.py:579} INFO - at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:218)
+[2024-08-31T18:16:16.965+0000] {spark_submit.py:579} INFO - at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:230)
+[2024-08-31T18:16:16.965+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.netty.NettyRpcEnv.createClient(NettyRpcEnv.scala:204)
+[2024-08-31T18:16:16.966+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.netty.Outbox$$anon$1.call(Outbox.scala:202)
+[2024-08-31T18:16:16.967+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.netty.Outbox$$anon$1.call(Outbox.scala:198)
+[2024-08-31T18:16:16.968+0000] {spark_submit.py:579} INFO - ... 4 more
+[2024-08-31T18:16:16.969+0000] {spark_submit.py:579} INFO - Caused by: java.net.UnknownHostException: dibimbing-dataeng-spark-master
+[2024-08-31T18:16:16.992+0000] {spark_submit.py:579} INFO - at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
+[2024-08-31T18:16:16.993+0000] {spark_submit.py:579} INFO - at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)
+[2024-08-31T18:16:16.994+0000] {spark_submit.py:579} INFO - at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385)
+[2024-08-31T18:16:16.995+0000] {spark_submit.py:579} INFO - at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306)
+[2024-08-31T18:16:16.996+0000] {spark_submit.py:579} INFO - at java.base/java.net.InetAddress.getByName(InetAddress.java:1256)
+[2024-08-31T18:16:16.996+0000] {spark_submit.py:579} INFO - at io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:156)
+[2024-08-31T18:16:16.997+0000] {spark_submit.py:579} INFO - at io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:153)
+[2024-08-31T18:16:17.000+0000] {spark_submit.py:579} INFO - at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+[2024-08-31T18:16:17.002+0000] {spark_submit.py:579} INFO - at io.netty.util.internal.SocketUtils.addressByName(SocketUtils.java:153)
+[2024-08-31T18:16:17.002+0000] {spark_submit.py:579} INFO - at io.netty.resolver.DefaultNameResolver.doResolve(DefaultNameResolver.java:41)
+[2024-08-31T18:16:17.003+0000] {spark_submit.py:579} INFO - at io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:61)
+[2024-08-31T18:16:17.011+0000] {spark_submit.py:579} INFO - at io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:53)
+[2024-08-31T18:16:17.014+0000] {spark_submit.py:579} INFO - at io.netty.resolver.InetSocketAddressResolver.doResolve(InetSocketAddressResolver.java:55)
+[2024-08-31T18:16:17.016+0000] {spark_submit.py:579} INFO - at io.netty.resolver.InetSocketAddressResolver.doResolve(InetSocketAddressResolver.java:31)
+[2024-08-31T18:16:17.026+0000] {spark_submit.py:579} INFO - at io.netty.resolver.AbstractAddressResolver.resolve(AbstractAddressResolver.java:106)
+[2024-08-31T18:16:17.027+0000] {spark_submit.py:579} INFO - at io.netty.bootstrap.Bootstrap.doResolveAndConnect0(Bootstrap.java:206)
+[2024-08-31T18:16:17.028+0000] {spark_submit.py:579} INFO - at io.netty.bootstrap.Bootstrap.access$000(Bootstrap.java:46)
+[2024-08-31T18:16:17.033+0000] {spark_submit.py:579} INFO - at io.netty.bootstrap.Bootstrap$1.operationComplete(Bootstrap.java:180)
+[2024-08-31T18:16:17.035+0000] {spark_submit.py:579} INFO - at io.netty.bootstrap.Bootstrap$1.operationComplete(Bootstrap.java:166)
+[2024-08-31T18:16:17.035+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:578)
+[2024-08-31T18:16:17.036+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:552)
+[2024-08-31T18:16:17.060+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:491)
+[2024-08-31T18:16:17.067+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:616)
+[2024-08-31T18:16:17.099+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.setSuccess0(DefaultPromise.java:605)
+[2024-08-31T18:16:17.100+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.trySuccess(DefaultPromise.java:104)
+[2024-08-31T18:16:17.100+0000] {spark_submit.py:579} INFO - at io.netty.channel.DefaultChannelPromise.trySuccess(DefaultChannelPromise.java:84)
+[2024-08-31T18:16:17.101+0000] {spark_submit.py:579} INFO - at io.netty.channel.AbstractChannel$AbstractUnsafe.safeSetSuccess(AbstractChannel.java:990)
+[2024-08-31T18:16:17.101+0000] {spark_submit.py:579} INFO - at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:516)
+[2024-08-31T18:16:17.102+0000] {spark_submit.py:579} INFO - at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:429)
+[2024-08-31T18:16:17.103+0000] {spark_submit.py:579} INFO - at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:486)
+[2024-08-31T18:16:17.106+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
+[2024-08-31T18:16:17.106+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
+[2024-08-31T18:16:17.109+0000] {spark_submit.py:579} INFO - at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:503)
+[2024-08-31T18:16:17.110+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
+[2024-08-31T18:16:17.110+0000] {spark_submit.py:579} INFO - at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+[2024-08-31T18:16:17.111+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+[2024-08-31T18:16:17.111+0000] {spark_submit.py:579} INFO - ... 1 more
+[2024-08-31T18:16:35.902+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:35 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://dibimbing-dataeng-spark-master:7077...
+[2024-08-31T18:16:36.947+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:36 WARN StandaloneAppClient$ClientEndpoint: Failed to connect to master dibimbing-dataeng-spark-master:7077
+[2024-08-31T18:16:36.952+0000] {spark_submit.py:579} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2024-08-31T18:16:36.953+0000] {spark_submit.py:579} INFO - at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:301)
+[2024-08-31T18:16:36.956+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2024-08-31T18:16:36.957+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.RpcEnv.setupEndpointRefByURI(RpcEnv.scala:102)
+[2024-08-31T18:16:36.957+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.RpcEnv.setupEndpointRef(RpcEnv.scala:110)
+[2024-08-31T18:16:36.958+0000] {spark_submit.py:579} INFO - at org.apache.spark.deploy.client.StandaloneAppClient$ClientEndpoint$$anon$1.run(StandaloneAppClient.scala:107)
+[2024-08-31T18:16:36.958+0000] {spark_submit.py:579} INFO - at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[2024-08-31T18:16:36.959+0000] {spark_submit.py:579} INFO - at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+[2024-08-31T18:16:36.959+0000] {spark_submit.py:579} INFO - at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2024-08-31T18:16:36.959+0000] {spark_submit.py:579} INFO - at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2024-08-31T18:16:36.960+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-31T18:16:36.960+0000] {spark_submit.py:579} INFO - Caused by: java.io.IOException: Failed to connect to dibimbing-dataeng-spark-master/<unresolved>:7077
+[2024-08-31T18:16:36.961+0000] {spark_submit.py:579} INFO - at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:288)
+[2024-08-31T18:16:36.961+0000] {spark_submit.py:579} INFO - at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:218)
+[2024-08-31T18:16:36.961+0000] {spark_submit.py:579} INFO - at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:230)
+[2024-08-31T18:16:36.962+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.netty.NettyRpcEnv.createClient(NettyRpcEnv.scala:204)
+[2024-08-31T18:16:36.962+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.netty.Outbox$$anon$1.call(Outbox.scala:202)
+[2024-08-31T18:16:36.962+0000] {spark_submit.py:579} INFO - at org.apache.spark.rpc.netty.Outbox$$anon$1.call(Outbox.scala:198)
+[2024-08-31T18:16:36.963+0000] {spark_submit.py:579} INFO - ... 4 more
+[2024-08-31T18:16:36.963+0000] {spark_submit.py:579} INFO - Caused by: java.net.UnknownHostException: dibimbing-dataeng-spark-master
+[2024-08-31T18:16:36.964+0000] {spark_submit.py:579} INFO - at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
+[2024-08-31T18:16:36.964+0000] {spark_submit.py:579} INFO - at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)
+[2024-08-31T18:16:36.964+0000] {spark_submit.py:579} INFO - at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385)
+[2024-08-31T18:16:36.965+0000] {spark_submit.py:579} INFO - at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306)
+[2024-08-31T18:16:36.965+0000] {spark_submit.py:579} INFO - at java.base/java.net.InetAddress.getByName(InetAddress.java:1256)
+[2024-08-31T18:16:36.966+0000] {spark_submit.py:579} INFO - at io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:156)
+[2024-08-31T18:16:36.966+0000] {spark_submit.py:579} INFO - at io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:153)
+[2024-08-31T18:16:36.967+0000] {spark_submit.py:579} INFO - at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+[2024-08-31T18:16:36.967+0000] {spark_submit.py:579} INFO - at io.netty.util.internal.SocketUtils.addressByName(SocketUtils.java:153)
+[2024-08-31T18:16:36.967+0000] {spark_submit.py:579} INFO - at io.netty.resolver.DefaultNameResolver.doResolve(DefaultNameResolver.java:41)
+[2024-08-31T18:16:36.968+0000] {spark_submit.py:579} INFO - at io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:61)
+[2024-08-31T18:16:36.968+0000] {spark_submit.py:579} INFO - at io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:53)
+[2024-08-31T18:16:36.968+0000] {spark_submit.py:579} INFO - at io.netty.resolver.InetSocketAddressResolver.doResolve(InetSocketAddressResolver.java:55)
+[2024-08-31T18:16:36.969+0000] {spark_submit.py:579} INFO - at io.netty.resolver.InetSocketAddressResolver.doResolve(InetSocketAddressResolver.java:31)
+[2024-08-31T18:16:36.970+0000] {spark_submit.py:579} INFO - at io.netty.resolver.AbstractAddressResolver.resolve(AbstractAddressResolver.java:106)
+[2024-08-31T18:16:36.970+0000] {spark_submit.py:579} INFO - at io.netty.bootstrap.Bootstrap.doResolveAndConnect0(Bootstrap.java:206)
+[2024-08-31T18:16:36.973+0000] {spark_submit.py:579} INFO - at io.netty.bootstrap.Bootstrap.access$000(Bootstrap.java:46)
+[2024-08-31T18:16:36.973+0000] {spark_submit.py:579} INFO - at io.netty.bootstrap.Bootstrap$1.operationComplete(Bootstrap.java:180)
+[2024-08-31T18:16:36.974+0000] {spark_submit.py:579} INFO - at io.netty.bootstrap.Bootstrap$1.operationComplete(Bootstrap.java:166)
+[2024-08-31T18:16:36.974+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:578)
+[2024-08-31T18:16:36.974+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:552)
+[2024-08-31T18:16:36.975+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:491)
+[2024-08-31T18:16:36.976+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:616)
+[2024-08-31T18:16:36.976+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.setSuccess0(DefaultPromise.java:605)
+[2024-08-31T18:16:36.977+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.DefaultPromise.trySuccess(DefaultPromise.java:104)
+[2024-08-31T18:16:36.977+0000] {spark_submit.py:579} INFO - at io.netty.channel.DefaultChannelPromise.trySuccess(DefaultChannelPromise.java:84)
+[2024-08-31T18:16:36.978+0000] {spark_submit.py:579} INFO - at io.netty.channel.AbstractChannel$AbstractUnsafe.safeSetSuccess(AbstractChannel.java:990)
+[2024-08-31T18:16:36.978+0000] {spark_submit.py:579} INFO - at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:516)
+[2024-08-31T18:16:36.978+0000] {spark_submit.py:579} INFO - at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:429)
+[2024-08-31T18:16:36.979+0000] {spark_submit.py:579} INFO - at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:486)
+[2024-08-31T18:16:36.979+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
+[2024-08-31T18:16:36.980+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
+[2024-08-31T18:16:36.980+0000] {spark_submit.py:579} INFO - at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:503)
+[2024-08-31T18:16:36.980+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
+[2024-08-31T18:16:36.981+0000] {spark_submit.py:579} INFO - at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+[2024-08-31T18:16:36.981+0000] {spark_submit.py:579} INFO - at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+[2024-08-31T18:16:36.981+0000] {spark_submit.py:579} INFO - ... 1 more
+[2024-08-31T18:16:55.977+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:55 ERROR StandaloneSchedulerBackend: Application has been killed. Reason: All masters are unresponsive! Giving up.
+[2024-08-31T18:16:56.060+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:56 WARN StandaloneSchedulerBackend: Application ID is not initialized yet.
+[2024-08-31T18:16:56.313+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:56 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 42813.
+[2024-08-31T18:16:56.367+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:56 INFO NettyBlockTransferService: Server created on dataeng-airflow-scheduler:42813
+[2024-08-31T18:16:56.376+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:56 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2024-08-31T18:16:56.402+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:56 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, dataeng-airflow-scheduler, 42813, None)
+[2024-08-31T18:16:56.446+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:56 INFO BlockManagerMasterEndpoint: Registering block manager dataeng-airflow-scheduler:42813 with 434.4 MiB RAM, BlockManagerId(driver, dataeng-airflow-scheduler, 42813, None)
+[2024-08-31T18:16:56.473+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:56 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, dataeng-airflow-scheduler, 42813, None)
+[2024-08-31T18:16:56.489+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:56 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, dataeng-airflow-scheduler, 42813, None)
+[2024-08-31T18:16:56.559+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:56 INFO SparkUI: Stopped Spark web UI at http://dataeng-airflow-scheduler:4040
+[2024-08-31T18:16:56.612+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:56 INFO StandaloneSchedulerBackend: Shutting down all executors
+[2024-08-31T18:16:56.632+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:56 INFO CoarseGrainedSchedulerBackend$DriverEndpoint: Asking each executor to shut down
+[2024-08-31T18:16:56.663+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:56 WARN StandaloneAppClient$ClientEndpoint: Drop UnregisterApplication(null) because has not yet connected to master
+[2024-08-31T18:16:56.778+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:56 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2024-08-31T18:16:57.019+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:57 INFO MemoryStore: MemoryStore cleared
+[2024-08-31T18:16:57.022+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:57 INFO BlockManager: BlockManager stopped
+[2024-08-31T18:16:57.104+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:57 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2024-08-31T18:16:57.110+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:57 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2024-08-31T18:16:57.240+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:57 INFO SparkContext: Successfully stopped SparkContext
+[2024-08-31T18:16:57.798+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:57 ERROR AsyncEventQueue: Listener AppStatusListener threw an exception
+[2024-08-31T18:16:57.814+0000] {spark_submit.py:579} INFO - java.lang.NullPointerException: Cannot invoke "org.apache.spark.status.api.v1.ApplicationInfo.attempts()" because the return value of "org.apache.spark.status.AppStatusListener.appInfo()" is null
+[2024-08-31T18:16:57.830+0000] {spark_submit.py:579} INFO - at org.apache.spark.status.AppStatusListener.onApplicationEnd(AppStatusListener.scala:192)
+[2024-08-31T18:16:57.846+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.SparkListenerBus.doPostEvent(SparkListenerBus.scala:57)
+[2024-08-31T18:16:57.862+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.SparkListenerBus.doPostEvent$(SparkListenerBus.scala:28)
+[2024-08-31T18:16:57.871+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.AsyncEventQueue.doPostEvent(AsyncEventQueue.scala:37)
+[2024-08-31T18:16:57.886+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.AsyncEventQueue.doPostEvent(AsyncEventQueue.scala:37)
+[2024-08-31T18:16:57.910+0000] {spark_submit.py:579} INFO - at org.apache.spark.util.ListenerBus.postToAll(ListenerBus.scala:117)
+[2024-08-31T18:16:57.913+0000] {spark_submit.py:579} INFO - at org.apache.spark.util.ListenerBus.postToAll$(ListenerBus.scala:101)
+[2024-08-31T18:16:57.917+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.AsyncEventQueue.super$postToAll(AsyncEventQueue.scala:105)
+[2024-08-31T18:16:57.923+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.AsyncEventQueue.$anonfun$dispatch$1(AsyncEventQueue.scala:105)
+[2024-08-31T18:16:57.937+0000] {spark_submit.py:579} INFO - at scala.runtime.java8.JFunction0$mcJ$sp.apply(JFunction0$mcJ$sp.java:23)
+[2024-08-31T18:16:57.957+0000] {spark_submit.py:579} INFO - at scala.util.DynamicVariable.withValue(DynamicVariable.scala:62)
+[2024-08-31T18:16:57.973+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.AsyncEventQueue.org$apache$spark$scheduler$AsyncEventQueue$$dispatch(AsyncEventQueue.scala:100)
+[2024-08-31T18:16:57.989+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.AsyncEventQueue$$anon$2.$anonfun$run$1(AsyncEventQueue.scala:96)
+[2024-08-31T18:16:57.990+0000] {spark_submit.py:579} INFO - at org.apache.spark.util.Utils$.tryOrStopSparkContext(Utils.scala:1446)
+[2024-08-31T18:16:57.994+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.AsyncEventQueue$$anon$2.run(AsyncEventQueue.scala:96)
+[2024-08-31T18:16:58.005+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:57 ERROR SparkContext: Error initializing SparkContext.
+[2024-08-31T18:16:58.011+0000] {spark_submit.py:579} INFO - java.lang.IllegalArgumentException: requirement failed: Can only call getServletHandlers on a running MetricsSystem
+[2024-08-31T18:16:58.013+0000] {spark_submit.py:579} INFO - at scala.Predef$.require(Predef.scala:281)
+[2024-08-31T18:16:58.023+0000] {spark_submit.py:579} INFO - at org.apache.spark.metrics.MetricsSystem.getServletHandlers(MetricsSystem.scala:89)
+[2024-08-31T18:16:58.024+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.<init>(SparkContext.scala:660)
+[2024-08-31T18:16:58.025+0000] {spark_submit.py:579} INFO - at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+[2024-08-31T18:16:58.026+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2024-08-31T18:16:58.026+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2024-08-31T18:16:58.027+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2024-08-31T18:16:58.028+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2024-08-31T18:16:58.028+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2024-08-31T18:16:58.029+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+[2024-08-31T18:16:58.030+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+[2024-08-31T18:16:58.041+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:238)
+[2024-08-31T18:16:58.047+0000] {spark_submit.py:579} INFO - at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+[2024-08-31T18:16:58.063+0000] {spark_submit.py:579} INFO - at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+[2024-08-31T18:16:58.066+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-31T18:16:58.071+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-31T18:16:58.072+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-31T18:16:58.072+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:57 INFO SparkContext: SparkContext already stopped.
+[2024-08-31T18:16:58.073+0000] {spark_submit.py:579} INFO - Error initializing SparkContext: An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+[2024-08-31T18:16:58.074+0000] {spark_submit.py:579} INFO - : java.lang.IllegalArgumentException: requirement failed: Can only call getServletHandlers on a running MetricsSystem
+[2024-08-31T18:16:58.075+0000] {spark_submit.py:579} INFO - at scala.Predef$.require(Predef.scala:281)
+[2024-08-31T18:16:58.075+0000] {spark_submit.py:579} INFO - at org.apache.spark.metrics.MetricsSystem.getServletHandlers(MetricsSystem.scala:89)
+[2024-08-31T18:16:58.076+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.<init>(SparkContext.scala:660)
+[2024-08-31T18:16:58.076+0000] {spark_submit.py:579} INFO - at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+[2024-08-31T18:16:58.077+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2024-08-31T18:16:58.077+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2024-08-31T18:16:58.078+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2024-08-31T18:16:58.079+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2024-08-31T18:16:58.079+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2024-08-31T18:16:58.080+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+[2024-08-31T18:16:58.080+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+[2024-08-31T18:16:58.083+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:238)
+[2024-08-31T18:16:58.091+0000] {spark_submit.py:579} INFO - at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+[2024-08-31T18:16:58.092+0000] {spark_submit.py:579} INFO - at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+[2024-08-31T18:16:58.093+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-31T18:16:58.093+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-31T18:16:58.094+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-31T18:16:58.095+0000] {spark_submit.py:579} INFO - 
+[2024-08-31T18:16:58.095+0000] {spark_submit.py:579} INFO - Traceback (most recent call last):
+[2024-08-31T18:16:58.096+0000] {spark_submit.py:579} INFO - File "/spark-scripts/spark-retail-analysis.py", line 20, in <module>
+[2024-08-31T18:16:58.097+0000] {spark_submit.py:579} INFO - sparkcontext = pyspark.SparkContext.getOrCreate(conf=(
+[2024-08-31T18:16:58.097+0000] {spark_submit.py:579} INFO - File "/home/airflow/.local/lib/python3.9/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 483, in getOrCreate
+[2024-08-31T18:16:58.107+0000] {spark_submit.py:579} INFO - File "/home/airflow/.local/lib/python3.9/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 197, in __init__
+[2024-08-31T18:16:58.108+0000] {spark_submit.py:579} INFO - File "/home/airflow/.local/lib/python3.9/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 282, in _do_init
+[2024-08-31T18:16:58.109+0000] {spark_submit.py:579} INFO - File "/home/airflow/.local/lib/python3.9/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 402, in _initialize_context
+[2024-08-31T18:16:58.109+0000] {spark_submit.py:579} INFO - File "/home/airflow/.local/lib/python3.9/site-packages/pyspark/python/lib/py4j-0.10.9.5-src.zip/py4j/java_gateway.py", line 1585, in __call__
+[2024-08-31T18:16:58.110+0000] {spark_submit.py:579} INFO - File "/home/airflow/.local/lib/python3.9/site-packages/pyspark/python/lib/py4j-0.10.9.5-src.zip/py4j/protocol.py", line 326, in get_return_value
+[2024-08-31T18:16:58.111+0000] {spark_submit.py:579} INFO - py4j.protocol.Py4JJavaError: An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+[2024-08-31T18:16:58.111+0000] {spark_submit.py:579} INFO - : java.lang.IllegalArgumentException: requirement failed: Can only call getServletHandlers on a running MetricsSystem
+[2024-08-31T18:16:58.112+0000] {spark_submit.py:579} INFO - at scala.Predef$.require(Predef.scala:281)
+[2024-08-31T18:16:58.113+0000] {spark_submit.py:579} INFO - at org.apache.spark.metrics.MetricsSystem.getServletHandlers(MetricsSystem.scala:89)
+[2024-08-31T18:16:58.118+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.<init>(SparkContext.scala:660)
+[2024-08-31T18:16:58.119+0000] {spark_submit.py:579} INFO - at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+[2024-08-31T18:16:58.123+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2024-08-31T18:16:58.124+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2024-08-31T18:16:58.124+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2024-08-31T18:16:58.126+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2024-08-31T18:16:58.127+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2024-08-31T18:16:58.128+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+[2024-08-31T18:16:58.128+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+[2024-08-31T18:16:58.129+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:238)
+[2024-08-31T18:16:58.130+0000] {spark_submit.py:579} INFO - at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+[2024-08-31T18:16:58.145+0000] {spark_submit.py:579} INFO - at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+[2024-08-31T18:16:58.145+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-31T18:16:58.146+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-31T18:16:58.146+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-31T18:16:58.150+0000] {spark_submit.py:579} INFO - 
+[2024-08-31T18:16:58.313+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:58 INFO ShutdownHookManager: Shutdown hook called
+[2024-08-31T18:16:58.319+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:58 INFO ShutdownHookManager: Deleting directory /tmp/spark-68139cff-b714-4e5b-accb-883559ad03ee
+[2024-08-31T18:16:58.358+0000] {spark_submit.py:579} INFO - 24/08/31 18:16:58 INFO ShutdownHookManager: Deleting directory /tmp/spark-fdd1ff7f-1ab8-4b42-a820-c5dbea1c9b31
+[2024-08-31T18:17:00.434+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 174, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 505, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master spark://dataeng-spark-master:7077 --packages org.postgresql:postgresql:42.2.18 --name arrow-spark /spark-scripts/spark-retail-analysis.py. Error code is: 1.
+[2024-08-31T18:17:00.988+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=spark_retail_analysis_dag, task_id=spark_retail_analysis_task, execution_date=20240831T181507, start_date=20240831T181513, end_date=20240831T181700
+[2024-08-31T18:17:01.309+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 52 for task spark_retail_analysis_task (Cannot execute: spark-submit --master spark://dataeng-spark-master:7077 --packages org.postgresql:postgresql:42.2.18 --name arrow-spark /spark-scripts/spark-retail-analysis.py. Error code is: 1.; 15130)
+[2024-08-31T18:17:01.410+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-08-31T18:17:01.624+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check
